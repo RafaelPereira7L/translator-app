@@ -3,7 +3,11 @@ import { Box, Flex, Heading, useColorModeValue } from '@chakra-ui/react';
 import { BsTranslate } from 'react-icons/bs';
 import { DarkModeSwitch } from './DarkModeSwitch';
 
-export default function Navbar() {
+type Props = {
+  name: string;
+};
+
+export default function Navbar({ name }: Props) {
   return (
     <>
       <Box
@@ -16,10 +20,17 @@ export default function Navbar() {
         <Flex h={20} alignItems={'center'} justifyContent={'space-between'}>
           <Flex direction={'row'} align={'center'} gap={'10px'}>
             <BsTranslate size={'30px'} />
-            <Heading size={'lg'} fontWeight={'bold'}>
-              TRANSLATOR APP
+            <Heading
+              size={'lg'}
+              fontWeight={'bold'}
+              overflowY={'hidden'}
+              pointerEvents={'none'}
+              userSelect={'none'}
+            >
+              {name}
             </Heading>
           </Flex>
+
           <DarkModeSwitch />
         </Flex>
       </Box>
