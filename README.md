@@ -1,4 +1,4 @@
-<h1 align='center'>Translator Web APP</h1>
+<h1 align='center'>Translator Web APP in Development 🚧</h1>
 
 A translator app using <a href='https://libretranslate.com/'>LibreTranslate API</a>
 
