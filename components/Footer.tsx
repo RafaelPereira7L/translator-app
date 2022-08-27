@@ -15,10 +15,12 @@ const SocialButton = ({
   children,
   label,
   href,
+  target,
 }: {
   children: ReactNode;
   label: string;
   href: string;
+  target?: string;
 }) => {
   return (
     <chakra.button
@@ -29,6 +31,7 @@ const SocialButton = ({
       cursor={'pointer'}
       as={'a'}
       href={href}
+      target={target}
       display={'inline-flex'}
       alignItems={'center'}
       justifyContent={'center'}
@@ -63,13 +66,27 @@ export default function Footer() {
       >
         <Text fontWeight={'bold'}>Made with 💜 by RafaelDev</Text>
         <Stack direction={'row'} spacing={2}>
-          <SocialButton label={'Github'} href={'#'}>
+          <SocialButton
+            label={'Github'}
+            target={'_blank'}
+            href={'https://github.com/RafaelPereira7L'}
+          >
             <FaGithub />
           </SocialButton>
-          <SocialButton label={'Linkedin'} href={'#'}>
+          <SocialButton
+            label={'Linkedin'}
+            target={'_blank'}
+            href={
+              'https://www.linkedin.com/in/rafael-henrique-pereira-37b155232/'
+            }
+          >
             <FaLinkedin />
           </SocialButton>
-          <SocialButton label={'Instagram'} href={'#'}>
+          <SocialButton
+            label={'Portfolio'}
+            target={'_blank'}
+            href={'https://www.rafael-dev.tech/'}
+          >
             <FaLink />
           </SocialButton>
         </Stack>

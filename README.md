@@ -1,8 +1,8 @@
 <h1 align='center'>Translator Web APP in Development 🚧</h1>
 
-A translator app using <a href='https://libretranslate.com/'>LibreTranslate API</a>
+A translator app using <a href='https://translate.argosopentech.com/'>LibreTranslate API</a>
 
-Aplicativo de tradução utilizando a API <a href='https://libretranslate.com/'>LibreTranslate </a>
+Aplicativo de tradução utilizando a API <a href='https://translate.argosopentech.com/'>LibreTranslate </a>
 <hr>
 
 <h2 align='center'>Techs</h2>
@@ -10,12 +10,27 @@ Aplicativo de tradução utilizando a API <a href='https://libretranslate.com/'>
 <img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white"/>
 <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white"/>
 <img src="https://img.shields.io/badge/chakraui-%234ED1C5.svg?style=for-the-badge&logo=chakraui&logoColor=white"/>
-<img src="https://img.shields.io/badge/-GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white"/>
 <img src="https://img.shields.io/badge/yarn-%232C8EBB.svg?style=for-the-badge&logo=yarn&logoColor=white"/>
 <img src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white"/>
 </div>
 
 <br>
+
+<div align="center">
+
+<h2 align='center'>OVERVIEW</h2>
+<img src="public/lightmode.jpg" width=300/>
+<img src="public/test.jpg" width=300/>
+<img src="public/copyfunc.jpg" width=300/>
+<img src="public/error.jpg" width=300/>
+
+
+
+
+</div>
+
+<br>
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

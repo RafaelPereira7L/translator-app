@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Badge,
   Box,
   Button,
   Center,
   Flex,
+  Select,
   Textarea,
   useToast,
   VStack,
 } from '@chakra-ui/react';
 import Btn from './Button';
-import Selector from './Select';
+import { api } from '../utils/api';
+import Options from './Options';
 
 export default function Input() {
+  const [source, setSource] = useState('');
+  const [target, setTarget] = useState('');
+
   const [text, setText] = useState('');
   const [translate, setTranslate] = useState('');
   const toast = useToast();
-
-  useEffect(() => {
-    setTranslate(text.toUpperCase());
-  }, [text, setTranslate]);
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(translate);
@@ -29,6 +30,21 @@ export default function Input() {
       duration: 3000,
       isClosable: true,
     });
+  };
+
+  const translateText = async () => {
+    if (source === '' || target === '' || text === '') {
+      toast({
+        description: 'Please check the fields.',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
+      setTranslate('');
+      return;
+    }
+    const response = await api({ text, target, source });
+    setTranslate(response);
   };
 
   return (
@@ -49,7 +65,16 @@ export default function Input() {
           flexDirection={'column'}
           gap={'10px'}
         >
-          <Selector placeholder="Choose a language" target={false} />
+          <Select
+            variant="filled"
+            placeholder="Choose a language"
+            size="sm"
+            borderRadius="md"
+            value={source}
+            onChange={(e) => setSource(e.target.value)}
+          >
+            <Options target={'source'} />
+          </Select>
 
           <Box>
             <Textarea
@@ -73,7 +98,16 @@ export default function Input() {
           flexDirection={'column'}
           gap={'10px'}
         >
-          <Selector placeholder="Translate to" target={true} />
+          <Select
+            variant="filled"
+            placeholder="Translate to"
+            size="sm"
+            borderRadius="md"
+            value={target}
+            onChange={(e) => setTarget(e.target.value)}
+          >
+            <Options target={'target'} />
+          </Select>
 
           <Box>
             <Textarea
@@ -101,7 +135,7 @@ export default function Input() {
         </Box>
       </Flex>
       <Center>
-        <Btn text={'Translate'} />
+        <Btn text={'Translate'} onClick={() => translateText()} />
       </Center>
     </VStack>
   );
