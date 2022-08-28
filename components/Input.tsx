@@ -20,6 +20,7 @@ export default function Input() {
 
   const [text, setText] = useState('');
   const [translate, setTranslate] = useState('');
+  const [loading, setLoading] = useState(false);
   const toast = useToast();
 
   const copyToClipboard = () => {
@@ -43,8 +44,10 @@ export default function Input() {
       setTranslate('');
       return;
     }
+    setLoading(true);
     const response = await api({ text, target, source });
     setTranslate(response);
+    setLoading(false);
   };
 
   return (
@@ -135,7 +138,11 @@ export default function Input() {
         </Box>
       </Flex>
       <Center>
-        <Btn text={'Translate'} onClick={() => translateText()} />
+        <Btn
+          text={'Translate'}
+          onClick={() => translateText()}
+          isLoading={loading}
+        />
       </Center>
     </VStack>
   );
